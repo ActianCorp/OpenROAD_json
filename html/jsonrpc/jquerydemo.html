@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+		var minuend = Number(document.getElementById("minuend").value);
+		var subtrahend = Number(document.getElementById("subtrahend").value);
+		var data = JSON.stringify({"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": subtrahend, "minuend": minuend}});
+		$.ajax({
+		type: 'POST',
+		url: 'http://localhost:8080/openroad/jsonrpcservertest',
+		data: data,
+		success: function(response) {
+            document.getElementById("answer").innerHTML = response.result;
+        },
+        error: function(response) {
+            console.log(response.error);
+        },
+		contentType: 'application/json',
+		dataType: 'json'
+		});
+    });
+});
+</script>
+</head>
+<body>
+<h2>Subtract Demo Using the jQuery</h2>
+<div>
+<form>
+  Value 1:<br>
+  <input type="number" name="minuend" id="minuend" value="42.8">
+  <br><br>
+  Value 2:<br>
+  <input type="number" name="subtrahend" id="subtrahend" value="23.4">
+  <br><br>
+  <button type="button">Subtract</button>
+  <br><br>
+  Answer:<div id="answer"></div>
+</form>
+</div>
+</body>
+</html>
