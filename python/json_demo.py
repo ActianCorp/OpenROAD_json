@@ -75,7 +75,7 @@ def main(argv=None):
 
     parser = argparse.ArgumentParser(prog=argv[0], description='json-rpc demo')
     parser.add_argument("-q", "--quiet", dest="quiet", action="store_true", help="hide detail")
-    parser.add_argument('-u', '--url', dest="url", help="The URL where you have registered OpenROAD with Tomcat", default=DEFAULT_SERVER_URL)
+    parser.add_argument('-u', '--url', dest="url", help="The URL where you have registered OpenROAD with Tomcat", default=os.environ.get('ORJSON_URL', DEFAULT_SERVER_URL))
 
     args = parser.parse_args(argv[1:])
 

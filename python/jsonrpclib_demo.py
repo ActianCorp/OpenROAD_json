@@ -9,7 +9,7 @@ DEFAULT_SERVER_URL = 'http://localhost:8080/openroad/jsonrpcservertest'
 print(sys.version)
 print(platform.platform())
 
-url = os.environ.get('ORJSON_URL') or DEFAULT_SERVER_URL
+url = os.environ.get('ORJSON_URL', DEFAULT_SERVER_URL)
 
 print(url)
 server = jsonrpclib.Server(url)
