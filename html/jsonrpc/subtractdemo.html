@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-function subtractDemo() {
-	var xhr = new XMLHttpRequest();
-	var url = "http://localhost:8080/openroad/jsonrpcservertest";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json");
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4 && xhr.status === 200) {
-			var json = JSON.parse(xhr.responseText);
-			document.getElementById("answer").innerHTML = json.result;
-		}
-	};
-	var minuend = Number(document.getElementById("minuend").value);
-	var subtrahend = Number(document.getElementById("subtrahend").value);
-	var data = JSON.stringify({"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": subtrahend, "minuend": minuend}});
-	xhr.send(data);
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    function subtractDemo() {
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost:8080/openroad/jsonrpcservertest";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                document.getElementById("answer").innerHTML = json.result;
+            }
+        };
+        var minuend = Number(document.getElementById("minuend").value);
+        var subtrahend = Number(document.getElementById("subtrahend").value);
+        var data = JSON.stringify({"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": subtrahend, "minuend": minuend}});
+        xhr.send(data);
+    }
+    </script>
 </head>
 <body>
 <h2>Subtract Demo Using the XMLHttpRequest</h2>

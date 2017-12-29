@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-		var minuend = Number(document.getElementById("minuend").value);
-		var subtrahend = Number(document.getElementById("subtrahend").value);
-		var data = JSON.stringify({"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": subtrahend, "minuend": minuend}});
-		$.ajax({
-		type: 'POST',
-		url: 'http://localhost:8080/openroad/jsonrpcservertest',
-		data: data,
-		success: function(response) {
-            document.getElementById("answer").innerHTML = response.result;
-        },
-        error: function(response) {
-            console.log(response.error);
-        },
-		contentType: 'application/json',
-		dataType: 'json'
-		});
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var minuend = Number(document.getElementById("minuend").value);
+            var subtrahend = Number(document.getElementById("subtrahend").value);
+            var data = JSON.stringify({"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": subtrahend, "minuend": minuend}});
+            $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/openroad/jsonrpcservertest',
+            data: data,
+            success: function(response) {
+                document.getElementById("answer").innerHTML = response.result;
+            },
+            error: function(response) {
+                console.log(response.error);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+            });
+        });
     });
-});
-</script>
+    </script>
 </head>
 <body>
 <h2>Subtract Demo Using the jQuery</h2>
