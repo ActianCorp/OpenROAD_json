@@ -7,8 +7,8 @@
     <script>
     $(document).ready(function(){
         $("button").click(function(){
-            var minuend = Number(document.getElementById("minuend").value);
-            var subtrahend = Number(document.getElementById("subtrahend").value);
+            var minuend = Number($("#minuend").val());
+            var subtrahend = Number($("#subtrahend").val());
             var data = JSON.stringify({
                 "jsonrpc": "2.0",
                 "id": 1,
@@ -20,7 +20,7 @@
             url: 'http://localhost:8080/openroad/jsonrpcservertest',
             data: data,
             success: function(response) {
-                document.getElementById("answer").innerHTML = response.result;
+                $("#answer").html(response.result);
             },
             error: function(response) {
                 console.log(response.error);
