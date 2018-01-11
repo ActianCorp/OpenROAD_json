@@ -2,17 +2,17 @@ processSend();
 
 function processSend(attempts) {
 
-    var xmlhttp = new ActiveXObject("MSXML2.ServerXMLHTTP");
     var WSHShell = new ActiveXObject("WScript.Shell");
     var ORJSON_URL = WSHShell.ExpandEnvironmentStrings("%ORJSON_URL%");
-    //var ORJSON_URL = WSHShell.Environment("ORJSOxN_URL");
     WSHShell = null;
     if (ORJSON_URL == "%ORJSON_URL%") {
         var svcurl = "http://localhost:8080/openroad/jsonrpcservertest";
     } else {
         var svcurl = ORJSON_URL;
     }
-
+	
+	var xmlhttp = new ActiveXObject("MSXML2.ServerXMLHTTP");
+    
     var data = "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}";
     WScript.Echo("URL " + svcurl);
 
@@ -49,5 +49,8 @@ function dataReceived(xmlhttp) {
     } else {
         response = xmlhttp.responseText;
         WScript.Echo("Response:\n" + response + "\n");
+		
+		eval("json="+xmlhttp.responseText);
+		WScript.Echo("Response: " + json.result);
     }
 }
