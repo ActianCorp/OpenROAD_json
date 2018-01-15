@@ -51,6 +51,6 @@ function dataReceived(xmlhttp) {
         WScript.Echo("Response:\n" + response + "\n");
 		
 		eval("json="+xmlhttp.responseText);
-		WScript.Echo("Response: " + json.result);
+		WScript.Echo("Result: " + json.result);
     }
 }
