@@ -4,7 +4,7 @@
 
 - curl - curl demos
 - html
-- jscript - Microsoft JScript demo
+- microsoft_jscript - Microsoft JScript demo
 - nodejs - Node.js demos
 - perl - Perl 5 demos
 - python - Python 2 and 3 demos
