@@ -13,11 +13,5 @@
 		<artifactId>jsonrpc2-client</artifactId>
 		<version>1.16.4</version>
 	</dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>
