@@ -1,4 +1,4 @@
-package com.actian.openroad;
+package com.actian.orjsonrpc;
 
 public class Params {
 
