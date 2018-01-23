@@ -4,6 +4,7 @@
 
 - curl - curl demos
 - html
+- java - Java demos
 - microsoft_jscript - Microsoft JScript demo
 - nodejs - Node.js demos
 - perl - Perl 5 demos
