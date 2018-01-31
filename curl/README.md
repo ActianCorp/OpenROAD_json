@@ -34,3 +34,22 @@ curl accepts a payload from the commandline, this needs to be escaped from the C
 Assuming local server, issue:
 
     curl http://localhost:8080/openroad/jsonrpcservertest  -d "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}"
+
+	
+## curl example for existing application
+
+comtest servlet-mapping is available in `C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\openroad\WEB-INF\web.xml` for existing comtest application.
+
+`comtest.json` is a configuration file containing registration entries for procedures. This file is available in `%II_SYSTEM%\ingres\files\orjsonconfig`.
+
+For example you can find helloworld procedure configuration under "registeredprocs" - 
+	
+	{"name":"helloworld", "params":{"rows":[
+    		{"name":"hellostring", "datatype":"varchar(100)", "isarray":false, "isnullable":true, "byref_use":true},
+    		{"name":"counter", "datatype":"integer", "isarray":false, "isnullable":false, "byref_use":true}
+	]}}
+
+To call comtest helloworld procedure, assuming local server issue:
+
+	curl http://localhost:8080/openroad/comtest -d @helloworld.json
+	
