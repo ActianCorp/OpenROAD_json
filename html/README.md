@@ -4,10 +4,18 @@ Copy `jsonrpc` folder under Tomcat Webapps. For example - `C:\Program Files\Apac
 
 NOTE Example uses localhost, for consistency use the same hostname/domain to avoid accidentally attempting to violate same-origin policy.
 
-## Using JavaScript and XMLHttpRequest Object
+## JsonRPCServerTest subtract demo using JavaScript and XMLHttpRequest Object
 
 Open http://localhost:8080/jsonrpc/subtractdemo.html in browser.
 
-## Using jQuery Ajax
+## JsonRPCServerTest subtract demo using jQuery library
 
 Open http://localhost:8080/jsonrpc/jquerydemo.html in browser.
+
+## ComTest HelloWorld demo using Bootstrap CSS and JavaScript/XMLHttpRequest Object
+
+Open http://localhost:8080/jsonrpc/comtestbootstrap.html in browser.
+
+## ComTest HelloWorld demo using jQuery Ajax
+
+Open http://localhost:8080/jsonrpc/jquerycomtest.html in browser.
