@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script>
+    function helloworldDemo() {
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost:8080/openroad/jsonrpcservertest";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+		    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {			
+                var json = JSON.parse(xhr.responseText);
+				document.getElementById("result").value = json.result.byref_results['hellostring'];
+            }
+        };
+        var hellostring = String(document.getElementById("hellostring").value);
+        var data = JSON.stringify({
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "helloworld",
+            "params": { "$byref_params": "hellostring", "hellostring": hellostring }
+            });
+        xhr.send(data);
+    }
+	function resetForm() {
+		document.getElementById("helloForm").reset();
+	}
+    </script>
+</head>
+<body onload="resetForm()">
+<div class="container">
+<div class="row">
+	<h2>HelloWorld Demo</h2>
+</div> 
+<div class="row">    
+	<form id="helloForm">
+	<div class="form-group">
+		<label for="hellostring" class="sr-only">Hello String</label>
+		<input type="text" id="hellostring" placeholder="Type Hello String" class="form-control" autofocus>
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-primary btn-block" onclick="helloworldDemo()">Comtest</button>
+	</div>    
+	<div class="form-group">
+		<label for="result" class="sr-only">Result</label>
+		<textarea id="result" placeholder="Result" class="form-control" disabled></textarea>
+	</div>
+	</form>
+</div>
+</div>
+</body>
+</html>

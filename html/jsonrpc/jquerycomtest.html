@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var hellostring = String($("#hellostring").val());
+            var counter = Number($("#counter").val());
+            var data = JSON.stringify({
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "helloworld" ,
+                "params": { "$byref_params": "hellostring,counter", "counter": counter, "hellostring": hellostring }
+                });
+            $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/openroad/comtest',
+            data: data,
+            success: function(response) {
+                $("#byref_hellostring").html(response.result.byref_results['hellostring']);
+				$("#byref_counter").html(response.result.byref_results['counter']);
+            },
+            error: function(response) {
+                console.log(response.error);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+<h2>HelloWorld Demo Using the jQuery</h2>
+<div>
+<form>
+  Hello String:<br>
+  <input type="text" name="hellostring" id="hellostring" value="Hello">
+  <br><br>
+  Counter:<br>
+  <input type="number" name="counter" id="counter" value="0">
+  <br><br>
+  <button type="button">comtest</button>
+  <br><br>
+  Hello String Result:<div id="byref_hellostring"></div>
+  <br>
+  Counter + 1:<div id="byref_counter"></div>
+</form>
+</div>
+</body>
+</html>

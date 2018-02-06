@@ -34,3 +34,11 @@ curl accepts a payload from the commandline, this needs to be escaped from the C
 Assuming local server, issue:
 
     curl http://localhost:8080/openroad/jsonrpcservertest  -d "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}"
+
+	
+## curl example for existing comtest application
+
+To call comtest helloworld procedure, assuming local server issue:
+
+	curl http://localhost:8080/openroad/comtest -d @helloworld.json
+	

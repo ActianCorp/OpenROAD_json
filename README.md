@@ -22,6 +22,13 @@ Assumptions:
 
 Note: Refer to **Server Reference Guide** for more details. The openroad.jar and Gatekeeper3 folder is available under orjava folder in your OpenROAD installation, that is, `%II_SYSTEM%\ingres\orjava`
 
+## Existing comtest application
+
+* `openroad` webapp also contain comtest servlet-mapping for existing comtest application. Refer `C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\openroad\WEB-INF\web.xml`
+* You can check comtest servlet by opening http://localhost:8080/openroad/comtest in your browser.
+* `comtest.json` configuration file, which contains comtest procedures’ registration entries, is provided under `%II_SYSTEM%\ingres\files\orjsonconfig`.
+* You can find comtest helloworld examples under curl and html directories.
+
 ## Commands
 
 * To Start/Restart OpenROAD Application Server, run following using the OpenROAD Administrator Command Prompt
