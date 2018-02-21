@@ -18,7 +18,9 @@ To see more options.
 ## Function call
 
 This example makes a regular function call by using [jsonrpclib](https://pypi.python.org/pypi/jsonrpclib) without the need for the caller to serialize to/from json.
-NOTE Python 2 only (until jsonrpclib is Py3 ready).
+Please follow installation instructions under [jsonrpclib](https://pypi.python.org/pypi/jsonrpclib) to install jsonrpclib.
+
+###### NOTE Python 2 only (until jsonrpclib is Py3 ready).
 
     python jsonrpclib_demo.py
 
@@ -32,4 +34,5 @@ Windows
 
 Unix:
 
-    env ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest python jsonrpclib_demo.py
+    env ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest 
+	python jsonrpclib_demo.py
