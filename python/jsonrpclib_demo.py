@@ -15,4 +15,4 @@ print(url)
 server = jsonrpclib.Server(url)
 result = server.subtract(subtrahend=23.4, minuend=42.8)
 print(result)
-assert result == {"result": 19.400, "id": 1, "jsonrpc": "2.0"}
+assert result == 19.400
