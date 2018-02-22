@@ -6,7 +6,7 @@
     <script>
     function subtractDemo() {
         var xhr = new XMLHttpRequest();
-        var url = "http://localhost:8080/openroad/jsonrpcservertest";
+        var url = "http://" + window.location.hostname + ":8080/openroad/jsonrpcservertest";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () {

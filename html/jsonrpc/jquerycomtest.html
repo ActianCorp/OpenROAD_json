@@ -15,9 +15,10 @@
                 "method": "helloworld" ,
                 "params": { "$byref_params": "hellostring,counter", "counter": counter, "hellostring": hellostring }
                 });
+			var url = "http://" + window.location.hostname + ":8080/openroad/comtest";
             $.ajax({
             type: 'POST',
-            url: 'http://localhost:8080/openroad/comtest',
+            url: url,
             data: data,
             success: function(response) {
                 $("#byref_hellostring").html(response.result.byref_results['hellostring']);
