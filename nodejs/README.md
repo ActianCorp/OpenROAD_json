@@ -1,22 +1,11 @@
-# Node.js Demo
+# Node.js Demos
 
 
 ## Raw http demo
 
-To run against local default server issue:
+To run against `ORJSON_URL` or local default server, issue:
 
     node demo.js
-
-To override URL, set operating system environment variable `ORJSON_URL`, e.g.:
-
-Windows
-
-    set ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest
-    node demo.js
-
-Unix:
-
-    env ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest node demo.js
 
 
 ## jayson - Third party library
@@ -28,9 +17,7 @@ Ensure `jayson` is available, e.g.:
 
     npm install jayson
 
-To run against local default server issue:
+To run against `ORJSON_URL` or local default server, issue:
 
     node jayson_demo.js
 
-To override URL, set operating system environment variable `ORJSON_URL`,
-as for first example.

@@ -4,10 +4,6 @@ Copy `jsonrpc` folder under Tomcat Webapps. For example - `C:\Program Files\Apac
 
 **Note: These examples need to be hosted on same web server where OpenROADJSONRPC servlet is configured, to avoid accidentally attempting to violate same-origin policy.**
 
-**HOSTNAME** is a computer name/IP where Web Applications are deployed, for example - *localhost*.
-
-**PORT** is a connection port number for your web server, for example - default port for Tomcat is *8080*
-
 ## JsonRPCServerTest subtract demo using JavaScript and XMLHttpRequest Object
 
 Open `http://HOSTNAME:PORT/jsonrpc/subtractdemo.html` in browser.
