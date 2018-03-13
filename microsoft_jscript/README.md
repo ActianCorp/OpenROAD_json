@@ -1,5 +1,5 @@
 # Microsoft JScript Demo
 
-To run against local default server issue:
+To run against `ORJSON_URL` or local default server, issue:
 
     cscript jsonrpctest.js

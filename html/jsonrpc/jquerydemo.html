@@ -15,9 +15,10 @@
                 "method": "subtract" ,
                 "params": {"subtrahend": subtrahend, "minuend": minuend}
                 });
+			var url = "http://" + window.location.host + "/openroad/jsonrpcservertest";
             $.ajax({
             type: 'POST',
-            url: 'http://localhost:8080/openroad/jsonrpcservertest',
+            url: url,
             data: data,
             success: function(response) {
                 $("#answer").html(response.result);

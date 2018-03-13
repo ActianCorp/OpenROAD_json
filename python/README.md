@@ -1,10 +1,10 @@
-# Python Demo
+# Python Demos
 
 ## Raw json payload
 
 This CPython 2.7, Jython 2.7, and CPython 3.6.1 demo, creates a json payload.
 
-To run against local default server issue:
+To run against `ORJSON_URL` or local default server, issue:
 
     python json_demo.py
 
@@ -22,16 +22,7 @@ Please follow installation instructions under [jsonrpclib](https://pypi.python.o
 
 **NOTE: Python 2 only (until jsonrpclib is Py3 ready).**
 
+To run against `ORJSON_URL` or local default server, issue:
+
     python jsonrpclib_demo.py
 
-To override URL, set operating system environment variable `ORJSON_URL`, e.g.:
-
-Windows
-
-    set ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest
-    python jsonrpclib_demo.py
-
-Unix / Linux
-
-    env ORJSON_URL=http://HOSTNAME:8080/openroad/jsonrpcservertest 
-	python jsonrpclib_demo.py

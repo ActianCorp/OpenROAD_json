@@ -16,8 +16,11 @@ public class JsonHttpURLConnection {
 	}
 	
 	private void sendPost() throws Exception {
-
-		String url = "http://localhost:8080/openroad/jsonrpcservertest";
+		String url = System.getenv("ORJSON_URL");
+		if (url == null || url.isEmpty()) {
+			url = "http://localhost:8080/openroad/jsonrpcservertest";
+		}
+		
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -47,7 +50,7 @@ public class JsonHttpURLConnection {
 		}
 		in.close();
 
-		System.out.println(response.toString());
+		System.out.println("Response : " + response.toString());
 
 	}
 

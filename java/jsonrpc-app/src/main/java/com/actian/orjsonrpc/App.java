@@ -15,7 +15,11 @@ public class App {
 		URL serverURL = null;
 		
 		try {
-			serverURL = new URL("http://localhost:8080/openroad/jsonrpcservertest");
+			String url = System.getenv("ORJSON_URL");
+			if (url == null || url.isEmpty()) {
+				url = "http://localhost:8080/openroad/jsonrpcservertest";
+			}
+			serverURL = new URL(url);
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
