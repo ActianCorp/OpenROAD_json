@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OPENROAD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Copyright (c) 2018 Actian Corporation. All Rights Reserved.-->
+	<APPLICATION name="HttpJsonRpc">
+		<included_apps>
+			<row>
+				<appname>core</appname>
+				<version>-1</version>
+				<imgfilename>core.plb</imgfilename>
+			</row>
+			<row_class>inclapp</row_class>
+		</included_apps>
+		<database_type>2</database_type>
+	</APPLICATION>
+	<COMPONENT name="ComTest" xsi:type="proc4glsource">
+		<versshortremarks>
+			<![CDATA[comtest helloworld example]]>
+		</versshortremarks>
+		<script>
+			<![CDATA[PROCEDURE ComTest() =
+DECLARE
+    request = StringObject;
+    response = StringObject DEFAULT NULL;
+    servertype = INTEGER NOT NULL DEFAULT RP_SHARED; // Change to RP_SHARED if location is not localhost
+    location = VARCHAR(256) NOT NULL DEFAULT 'http://localhost:8080/openroad/comtest';
+    image = VARCHAR(100) NOT NULL DEFAULT ''; // Not used but image parameter is mandatory
+    routing = VARCHAR(100) NOT NULL DEFAULT 'http-jsonrpc';
+    flags = VARCHAR(100) NOT NULL DEFAULT ''; // specify credential string if required
+    orjsonurl = VARCHAR(256) NOT NULL DEFAULT '';
+ENDDECLARE
+{
+    CurProcedure.Trace('============================================================');
+    orjsonurl = CurSession.getenv(name = 'ORJSON_URL');
+    IF orjsonurl != '' THEN
+        location = orjsonurl;
+    ENDIF;
+    CurProcedure.Trace('#### URL ####' + HC_NEWLINE + location);
+
+    IF CurRemoteServer.Initiate(image = image, type = servertype, location=location, routing=routing, flags=flags) != ER_OK THEN
+        CurProcedure.Trace('Error initiating server connection:' + VARCHAR(CurRemoteServer.ErrorCode)+ HC_NEWLINE + CurRemoteServer.ErrorText);
+        RETURN;
+    ENDIF;
+
+    request.Value = '{ "id": 1, "jsonrpc": "2.0", "method": "helloworld", "params": { "$byref_params": "hellostring,counter", "counter": 1, "hellostring": "HELLO" } }';
+    CurProcedure.Trace('#### REQUEST ####' + HC_NEWLINE + request.Value);
+
+    response = CurRemoteServer.JsonRpcRequest(request=request);
+    IF response IS NULL THEN
+        CurProcedure.Trace('NULL response');
+    ELSE
+        CurProcedure.Trace('#### RESPONSE ####' + HC_NEWLINE + response.Value);
+    ENDIF;
+    CurRemoteServer.Release();
+}]]>
+		</script>
+	</COMPONENT>
+	<COMPONENT name="JsonRpcServerTest" xsi:type="proc4glsource">
+		<versshortremarks>
+			<![CDATA[This is an example of http-jsonrpc routing]]>
+		</versshortremarks>
+		<script>
+			<![CDATA[PROCEDURE JsonRpcServerTest() =
+DECLARE
+    request = StringObject;
+    response = StringObject DEFAULT NULL;
+    servertype = INTEGER NOT NULL DEFAULT RP_SHARED;
+    location = VARCHAR(256) NOT NULL DEFAULT 'http://localhost:8080/openroad/jsonrpcservertest';
+    image = VARCHAR(100) NOT NULL DEFAULT ''; // Not used but image parameter is mandatory
+    routing = VARCHAR(100) NOT NULL DEFAULT 'http-jsonrpc';
+    flags = VARCHAR(100) NOT NULL DEFAULT ''; // specify credential string if required
+    orjsonurl = VARCHAR(256) NOT NULL DEFAULT '';
+ENDDECLARE
+{
+    CurProcedure.Trace('============================================================');   
+    orjsonurl = CurSession.getenv(name = 'ORJSON_URL');
+    IF orjsonurl != '' THEN
+        location = orjsonurl;
+    ENDIF;
+    CurProcedure.Trace('#### URL ####' + HC_NEWLINE + location);
+    
+    IF CurRemoteServer.Initiate(image = image, type = servertype, location=location, routing=routing, flags=flags) != ER_OK THEN
+        CurProcedure.Trace('Error initiating server connection:' + VARCHAR(CurRemoteServer.ErrorCode)+ HC_NEWLINE + CurRemoteServer.ErrorText);
+        RETURN;
+    ENDIF;
+
+    request.Value = '{"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": 23.4, "minuend": 42.8}}';
+    CurProcedure.Trace('#### REQUEST ####' + HC_NEWLINE + request.Value);
+
+    response = CurRemoteServer.JsonRpcRequest(request=request);
+    IF response IS NULL THEN
+        CurProcedure.Trace('NULL response');
+    ELSE
+        CurProcedure.Trace('#### RESPONSE ####' + HC_NEWLINE + response.Value);
+    ENDIF;
+    CurRemoteServer.Release();
+}]]>
+		</script>
+	</COMPONENT>
+</OPENROAD>
