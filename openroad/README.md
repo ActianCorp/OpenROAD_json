@@ -24,18 +24,10 @@ To run against ORJSON_URL or local default server, issue:
 
 ## JsonConfig4App
 
-This OpenROAD application generates JSON registration from OpenROAD 4GL procedures. 
+This OpenROAD application generates JSON registration from OpenROAD 4GL procedures.
 
-You can import `jsonconfig4app.xml` in OpenROAD Workbench and run the application. 
+You can run `jsonconfig4app.img` using the RunImage utility.
 
 To run the application command-line, issue:
-
-	w4gldev rundbapp testdb jsonconfig4app -ctop -Tyes -Ljsonconfig4app.log
-
-Note: testdb is database name, where the application is imported.
-
-Alternatively you can image the application as `jsonconfig4app.img` and run using the RunImage utility.
-
-For example, issue:
 
 	w4glrun jsonconfig4app.img -ctop -Tyes -Ljsonconfig4app.log

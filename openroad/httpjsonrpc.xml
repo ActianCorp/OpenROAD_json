@@ -21,7 +21,7 @@
 DECLARE
     request = StringObject;
     response = StringObject DEFAULT NULL;
-    servertype = INTEGER NOT NULL DEFAULT RP_SHARED; // Change to RP_SHARED if location is not localhost
+    servertype = INTEGER NOT NULL DEFAULT RP_SHARED;
     location = VARCHAR(256) NOT NULL DEFAULT 'http://localhost:8080/openroad/comtest';
     image = VARCHAR(100) NOT NULL DEFAULT ''; // Not used but image parameter is mandatory
     routing = VARCHAR(100) NOT NULL DEFAULT 'http-jsonrpc';
