@@ -2,25 +2,33 @@
 
 ## http-json routing examples
 
-This OpenROAD application contains examples of http-json routing. JsonRpcServerTest and ComTest 4GL procedures show the usage of RemoteServer's Initiate() and JsonRpcRequest() methods.
+This OpenROAD application contains examples of new http-json routing. 
 
-You can import `httpjsonrpc.xml` in OpenROAD Workbench and run JsonRpcServerTest / ComTest 4GL procedures. Check OpenROAD Trace Window or log file for URL, Request and Response. 
+JsonRpcTest frame can be used to connect OpenROAD JSON-RPC Servlet URL via http-json routing using RemoteServer's Initiate() method. After successful connection, JsonRpcRequest button can be used to call RemoteServer's JsonRpcRequest() method for a request string. An example request string is auto-populated.
+
+HelloWorld frame calls helloworld procedure from comtest application, whereas Subtract frame calls subtract procedure from jsonrpcservertest application.
+
+You can import `httpjsonrpc.xml` in OpenROAD Workbench and run JsonRpcTest, HelloWorld or Subtract frame. 
 
 To run against ORJSON_URL or local default server, issue:
 
-	w4gldev rundbapp testdb httpjsonrpc -cjsonrpcservertest -nowindows -Tyes,logonly -Ljsonrpcservertest.log
+	w4gldev rundbapp testdb httpjsonrpc -cjsonrpctest -Tyes -Ljsonrpctest.log
 
-	w4gldev rundbapp testdb httpjsonrpc -ccomtest -nowindows -Tyes,logonly -Lcomtest.log
+	w4gldev rundbapp testdb httpjsonrpc -chelloworld -Tyes -Lhelloworld.log
+	
+	w4gldev rundbapp testdb httpjsonrpc -csubtract -Tyes -Lsubtract.log
 
-Note: testdb is database name, where the application is imported. Check the log file under `II_LOG` or `II_SYSTEM\ingres\files` accordingly.
+Note: testdb is database name, where the `httpjsonrpc` application is imported. 
 
 Alternatively you can image the application as `httpjsonrpc.img` and run using the RunImage utility.
 
 To run against ORJSON_URL or local default server, issue:
 
-	w4glrun httpjsonrpc.img -cjsonrpcservertest -nowindows -Tyes,logonly -Ljsonrpcservertest.log
+	w4glrun httpjsonrpc.img -cjsonrpctest -Tyes -Ljsonrpctest.log
 	
-	w4glrun httpjsonrpc.img -ccomtest -nowindows -Tyes,logonly -Lcomtest.log
+	w4glrun httpjsonrpc.img -chelloworld -Tyes -Lhelloworld.log
+
+	w4glrun httpjsonrpc.img -csubtract -Tyes -Lsubtract.log
 
 ## JsonConfig4App
 
