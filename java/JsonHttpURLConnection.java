@@ -19,6 +19,8 @@ public class JsonHttpURLConnection {
 		String url = System.getenv("ORJSON_URL");
 		if (url == null || url.isEmpty()) {
 			url = "http://localhost:8080/openroad/jsonrpcservertest";
+		} else {
+			url = url + "/jsonrpcservertest";
 		}
 		
 		URL obj = new URL(url);

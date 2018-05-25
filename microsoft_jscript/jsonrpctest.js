@@ -8,7 +8,7 @@ function processSend(attempts) {
     if (ORJSON_URL == "%ORJSON_URL%") {
         var svcurl = "http://localhost:8080/openroad/jsonrpcservertest";
     } else {
-        var svcurl = ORJSON_URL;
+        var svcurl = ORJSON_URL + "/jsonrpcservertest";
     }
 	
 	var xmlhttp = new ActiveXObject("MSXML2.ServerXMLHTTP");

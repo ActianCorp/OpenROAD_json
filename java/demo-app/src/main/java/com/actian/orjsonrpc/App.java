@@ -21,6 +21,8 @@ public class App {
 		String url = System.getenv("ORJSON_URL");
 		if (url == null || url.isEmpty()) {
 			url = "http://localhost:8080/openroad/jsonrpcservertest";
+		} else {
+			url = url + "/jsonrpcservertest";
 		}
 		HttpPost postRequest = new HttpPost(url);
 		

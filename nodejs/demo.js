@@ -1,7 +1,6 @@
 var http = require('http');  // Use default HTTP module in the standard library
 var url = require('url');
 
-
 var bodyString = JSON.stringify({
                                     "jsonrpc": "2.0",
                                     "id": 1,
@@ -12,7 +11,10 @@ var bodyString = JSON.stringify({
 var jsonrpc_url = process.env.ORJSON_URL;
 if (jsonrpc_url == null) {
     jsonrpc_url = 'http://localhost:8080/openroad/jsonrpcservertest' ;
+} else {
+    jsonrpc_url = jsonrpc_url + "/jsonrpcservertest";
 }
+
 var url_obj = url.parse(jsonrpc_url);
 
 var headers = {
