@@ -7,6 +7,7 @@
 - java - Java demos
 - microsoft_jscript - Microsoft JScript demo
 - nodejs - Node.js demos
+- openroad - OpenROAD demos
 - perl - Perl 5 demo
 - python - Python 2 and 3 demos
 
@@ -38,11 +39,11 @@ To override URL, set operating system environment variable `ORJSON_URL` for exam
 
 #### Windows
 
-    set ORJSON_URL=http://HOSTNAME:PORT/openroad/jsonrpcservertest
+    set ORJSON_URL=http://HOSTNAME:PORT/openroad
 
 #### Unix / Linux:
 
-    export ORJSON_URL=http://HOSTNAME:PORT/openroad/jsonrpcservertest
+    export ORJSON_URL=http://HOSTNAME:PORT/openroad
 
 Note: If `ORJSON_URL` environment variable is not set, then default localhost URL `http://localhost:8080/openroad/jsonrpcservertest` is used. 
 `ORJSON_URL` have no impact on HTML demos.

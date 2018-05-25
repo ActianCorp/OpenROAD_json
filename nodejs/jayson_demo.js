@@ -4,6 +4,8 @@ var jayson = require('jayson');  // https://www.npmjs.com/package/jayson
 var jsonrpc_url = process.env.ORJSON_URL;
 if (jsonrpc_url == null) {
     jsonrpc_url = 'http://localhost:8080/openroad/jsonrpcservertest' ;
+} else {
+    jsonrpc_url = jsonrpc_url + "/jsonrpcservertest";
 }
 
 var client = jayson.client.http(jsonrpc_url);
