@@ -3,12 +3,14 @@
 ## The sub-directories/demos contained in this directory are as follows
 
 - curl - curl demos
+- csharp - C# demos
 - html - HTML/JavaScript demos
 - java - Java demos
 - microsoft_jscript - Microsoft JScript demo
 - nodejs - Node.js demos
 - openroad - OpenROAD demos
 - perl - Perl 5 demo
+- php - PHP demo
 - python - Python 2 and 3 demos
 
 Each sub-directory has its own README file with instructions.
