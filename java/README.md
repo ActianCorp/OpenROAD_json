@@ -35,7 +35,7 @@ Alternatively you can import `jsonrpc-app` Maven project in [Eclipse with Maven 
 
 # JAVA COM Demo
 
-Copy II_SYSTEM\orjava\openroad.jar to current directory or set CLASSPATH accordingly.
+Copy `II_SYSTEM\ingres\orjava\openroad.jar` to current directory or set CLASSPATH accordingly.
 
 Run following commands in Command Prompt / Terminal:
 	
