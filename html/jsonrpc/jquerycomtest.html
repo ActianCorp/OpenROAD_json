@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery HelloWorld Demo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
@@ -15,20 +16,17 @@
                 "method": "helloworld" ,
                 "params": { "$byref_params": "hellostring,counter", "counter": counter, "hellostring": hellostring }
                 });
-			var url = "http://" + window.location.host + "/openroad/comtest";
-            $.ajax({
-            type: 'POST',
-            url: url,
-            data: data,
-            success: function(response) {
-                $("#byref_hellostring").html(response.result.byref_results['hellostring']);
-				$("#byref_counter").html(response.result.byref_results['counter']);
-            },
-            error: function(response) {
-                console.log(response.error);
-            },
-            contentType: 'application/json',
-            dataType: 'json'
+			var url = window.location.protocol + "//" + window.location.host + "/openroad/comtest";
+			$.post( url, data, function( response ) {
+				if ( response.result ) {
+					$("#byref_hellostring").html(response.result.byref_results['hellostring']);
+					$("#byref_counter").html(response.result.byref_results['counter']);
+				} else if ( response.error ) {
+					console.log("Error: " + JSON.stringify(response.error));
+				}
+			}, "json")
+            .fail(function(error) {
+				console.error("jqXHR Error Status: ", error.status);
             });
         });
     });

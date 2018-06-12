@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bootstrap HelloWorld Demo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script>
     function helloworldDemo() {
         var xhr = new XMLHttpRequest();
-        var url = "http://" + window.location.host + "/openroad/comtest";
+        var url = window.location.protocol + "//" + window.location.host + "/openroad/comtest";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () {
-		    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {			
-                var json = JSON.parse(xhr.responseText);
-				document.getElementById("result").value = json.result.byref_results['hellostring'];
-            }
+			if (xhr.readyState === xhr.DONE) {
+				if (xhr.status === 200) {			
+					var json = JSON.parse(xhr.responseText);
+					if ( json.result ) {
+						document.getElementById("result").value = json.result.byref_results['hellostring'];
+					} else if ( json.error ) {
+						console.log("Error: " + JSON.stringify(json.error));
+					}
+				}
+				else { 
+					console.error("XMLHttpRequest Error Status: ", xhr.status);
+				} 
+			}
         };
+		xhr.onerror = function () { 
+			console.error("XMLHttpRequest Error Status: ", xhr.status);
+		}; 
         var hellostring = String(document.getElementById("hellostring").value);
         var data = JSON.stringify({
             "jsonrpc": "2.0",

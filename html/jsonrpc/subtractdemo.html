@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>XMLHttpRequest Subtract Demo</title>
     <script>
     function subtractDemo() {
-        var xhr = new XMLHttpRequest();
-        var url = "http://" + window.location.host + "/openroad/jsonrpcservertest";
+        var xhr = new XMLHttpRequest(); 
+        var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpcservertest";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                document.getElementById("answer").innerHTML = json.result;
-            }
+			if (xhr.readyState === xhr.DONE) {
+				if (xhr.status === 200) {
+					var json = JSON.parse(xhr.responseText);
+					if ( json.result ) {
+						document.getElementById("answer").innerHTML = json.result;
+					} else if ( json.error ) {
+						console.log("Error: " + JSON.stringify(json.error));
+					}
+				} else { 
+					console.error("XMLHttpRequest Error Status: ", xhr.status);
+				} 
+			}
         };
+		xhr.onerror = function () { 
+			console.error("XMLHttpRequest Error Status: ", xhr.status);
+		}; 
         var minuend = Number(document.getElementById("minuend").value);
         var subtrahend = Number(document.getElementById("subtrahend").value);
         var data = JSON.stringify({

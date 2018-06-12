@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery Subtract Demo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
@@ -15,16 +16,20 @@
                 "method": "subtract" ,
                 "params": {"subtrahend": subtrahend, "minuend": minuend}
                 });
-			var url = "http://" + window.location.host + "/openroad/jsonrpcservertest";
+			var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpcservertest";
             $.ajax({
             type: 'POST',
             url: url,
             data: data,
             success: function(response) {
-                $("#answer").html(response.result);
+				if ( response.result ) {
+					$("#answer").html(response.result);
+				} else if ( response.error ) {
+					console.log("Error: " + JSON.stringify(response.error));
+				}
             },
-            error: function(response) {
-                console.log(response.error);
+            error: function(error) {
+                console.error("jqXHR Error Status: ", error.status);
             },
             contentType: 'application/json',
             dataType: 'json'
