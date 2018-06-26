@@ -29,3 +29,11 @@ To run against ORJSON_URL or local default server, issue:
 	w4glrun httpjsonrpc.img -chelloworld -Tyes -Lhelloworld.log
 
 	w4glrun httpjsonrpc.img -csubtract -Tyes -Lsubtract.log
+
+## JsonConfig4App
+
+This OpenROAD application generates JSON registration from OpenROAD 4GL procedures.
+
+The JsonConfig4App application image is available under [JsonConfig4App Assets](https://github.com/ActianCorp/OpenROAD_json/releases/).
+
+Please refer the instructions under [JsonConfig4App](https://github.com/ActianCorp/OpenROAD_json/releases/) to run this application.
