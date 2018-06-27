@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery JSON-RPC Library Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/datagraph/jquery-jsonrpc/0.1.1/jquery.jsonrpc.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var minuend = Number($("#minuend").val());
+            var subtrahend = Number($("#subtrahend").val());
+			var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpcservertest";
+			$.jsonRPC.setup({
+			  endPoint: url
+			});
+			$.jsonRPC.request('subtract', {
+			  params: {subtrahend, minuend},
+			  success: function(response) {
+				$("#answer").html(response.result);
+			  },
+			  error: function(response) {
+				$("#answer").html(response.error.message);
+				console.error("Error: ", response.error);
+			  }
+			});
+        });
+    });
+    </script>
+</head>
+<body>
+<h2>Subtract Demo using the jQuery JSON-RPC Library</h2>
+<div>
+<form>
+  Value 1:<br>
+  <input type="number" name="minuend" id="minuend" value="42.8" step="any">
+  <br><br>
+  Value 2:<br>
+  <input type="number" name="subtrahend" id="subtrahend" value="23.4" step="any">
+  <br><br>
+  <button type="button">Subtract</button>
+  <br><br>
+  Answer:<div id="answer"></div>
+</form>
+</div>
+</body>
+</html>
