@@ -12,9 +12,13 @@ Open `PROTOCOL://HOSTNAME:PORT/jsonrpc/subtractdemo.html` in browser.
 
 Open `PROTOCOL://HOSTNAME:PORT/jsonrpc/fetchsubtract.html` in browser.
 
-## JsonRPCServerTest subtract demo using [jQuery](http://api.jquery.com/jquery.ajax/ "jQuery") library
+## JsonRPCServerTest subtract demo using [jQuery Ajax](http://api.jquery.com/jquery.ajax/ "jQuery Ajax")
 
 Open `PROTOCOL://HOSTNAME:PORT/jsonrpc/jquerydemo.html` in browser.
+
+## JsonRPCServerTest subtract demo using [jQuery JSON-RPC Library](https://github.com/datagraph/jquery-jsonrpc "jQuery JSON-RPC Library")
+
+Open `PROTOCOL://HOSTNAME:PORT/jsonrpc/jqueryjsonrpc.html` in browser.
 
 ## ComTest HelloWorld demo with [Bootstrap CSS](https://getbootstrap.com/docs/4.1/layout/overview/ "Bootstrap CSS")
 
