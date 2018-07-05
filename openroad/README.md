@@ -34,8 +34,6 @@ To run against ORJSON_URL or local default server, issue:
 
 This OpenROAD application generates JSON registration from OpenROAD 4GL procedures.
 
-You can run `jsonconfig4app.img` using the RunImage utility.
+The JsonConfig4App application image is available under [JsonConfig4App Assets](https://github.com/ActianCorp/OpenROAD_json/releases/).
 
-To run the application command-line, issue:
-
-	w4glrun jsonconfig4app.img -ctop -Tyes -Ljsonconfig4app.log
+Please refer the instructions under [JsonConfig4App](https://github.com/ActianCorp/OpenROAD_json/releases/) to run this application.
