@@ -26,3 +26,12 @@ To run against `ORJSON_URL` or local default server, issue:
 
     python jsonrpclib_demo.py
 
+	
+## jsonrpcclient library
+
+This example shows how you can send JSON-RPC requests with 'request' and 'notify' function of [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) library.
+Please follow installation instructions under [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) to install jsonrpcclient library.
+
+To run against `ORJSON_URL` or local default server, issue:
+
+    python jsonrpcclient_demo.py
