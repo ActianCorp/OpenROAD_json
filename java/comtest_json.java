@@ -15,7 +15,7 @@ class comtest_json {
 		{
 			String request = "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}";
 			rso = new RemoteServer();
-			rso.initiate("jsonrpcservertest.img", "-Tyes", "" , null , 1);			
+			rso.initiate("jsonrpcservertest.img", "-Tyes", "" , null , 1);
 			System.out.println("#### Request ####");
 			System.out.println(request);
 			String response = rso.jsonRpcRequest(request);

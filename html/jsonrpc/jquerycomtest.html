@@ -16,7 +16,7 @@
                 "method": "helloworld" ,
                 "params": { "$byref_params": "hellostring,counter", "counter": counter, "hellostring": hellostring }
                 });
-			var url = window.location.protocol + "//" + window.location.host + "/openroad/comtest";
+			var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpc?app=comtest";
 			$.post( url, data, function( response ) {
 				if ( response.result ) {
 					$("#byref_hellostring").html(response.result.byref_results['hellostring']);

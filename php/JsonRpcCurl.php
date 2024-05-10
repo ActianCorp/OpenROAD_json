@@ -3,7 +3,7 @@ $data = array("jsonrpc" => "2.0","id" => 1,"method"=> "subtract","params" => arr
 $data_string = json_encode($data);
 
 $url = getenv('ORJSON_URL');
-$url = $url ? $url . '/jsonrpcservertest' : 'http://localhost:8080/openroad/jsonrpcservertest';
+$url = $url ? $url . '/jsonrpc?app=jsonrpcservertest' : 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest';
 
 $curl = curl_init($url);
 

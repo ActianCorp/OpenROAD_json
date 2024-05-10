@@ -18,13 +18,13 @@ Due to json usage of double-quotes, the first example will use a file to avoid c
 
 Assuming local default server, issue:
 
-    curl http://localhost:8080/openroad/jsonrpcservertest -d @subtract_demo.json
+    curl -H "Content-Type: application/json" http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest -d @subtract_demo.json
 
-In the example above, curl assumes a POST request.
+In the example above, curl assumes a POST request and explicitly sets content headers.
 
-The following example runs curl in verbose mode and explicitly sets (optional) content headers:
+The following example runs curl in verbose mode:
 
-    curl -v --header "Content-Type: application/json" http://localhost:8080/openroad/jsonrpcservertest -d @subtract_demo.json
+    curl -v --header "Content-Type: application/json" http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest -d @subtract_demo.json
 
 
 ## curl payload from command line
@@ -33,23 +33,23 @@ curl accepts a payload from the command-line, this needs to be escaped from the 
 
 Assuming local default server, issue:
 
-    curl http://localhost:8080/openroad/jsonrpcservertest  -d "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}"
+    curl -H "Content-Type: application/json" http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest  -d "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"subtract\" , \"params\": {\"subtrahend\": 23.4, \"minuend\": 42.8}}"
 
-	
+
 ## curl example for existing comtest application
 
 To call comtest helloworld procedure, assuming local default server issue:
 
-	curl http://localhost:8080/openroad/comtest -d @helloworld.json
+    curl -H "Content-Type: application/json" http://localhost:8080/openroad/jsonrpc?app=comtest -d @helloworld.json
 
 You can use the environment variable `ORJSON_URL` with curl, for example:
 
 #### Windows
 
-    set ORJSON_URL=http://HOSTNAME:PORT/openroad/comtest
-    curl %ORJSON_URL% -d @helloworld.json
+    set ORJSON_URL=http://HOSTNAME:PORT/openroad/jsonrpc?app=comtest
+    curl -H "Content-Type: application/json" %ORJSON_URL% -d @helloworld.json
 
 #### Unix / Linux:
 
-    export ORJSON_URL=http://HOSTNAME:PORT/openroad/comtest 
-	curl $ORJSON_URL -d @helloworld.json
+    export ORJSON_URL=http://HOSTNAME:PORT/openroad/jsonrpc?app=comtest 
+    curl -H "Content-Type: application/json" $ORJSON_URL -d @helloworld.json

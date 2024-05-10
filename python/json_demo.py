@@ -36,7 +36,7 @@ log = logging.getLogger("json_demo")
 
 
 JSONRPC_VERSION = '2.0'
-DEFAULT_SERVER_URL = 'http://localhost:8080/openroad/jsonrpcservertest' 
+DEFAULT_SERVER_URL = 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest' 
 
 
 def post_json(url, dict_payload=None):
@@ -78,7 +78,7 @@ def main(argv=None):
     if jsonrpc_url is None:
        jsonrpc_url = DEFAULT_SERVER_URL
     else:
-       jsonrpc_url = jsonrpc_url + "/jsonrpcservertest"
+       jsonrpc_url = jsonrpc_url + "/jsonrpc?app=jsonrpcservertest"
 
     parser = argparse.ArgumentParser(prog=argv[0], description='json-rpc demo')
     parser.add_argument("-q", "--quiet", dest="quiet", action="store_true", help="hide detail")

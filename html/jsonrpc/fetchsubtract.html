@@ -8,7 +8,7 @@
     function subtractDemo() {        
 		var minuend = Number(document.getElementById("minuend").value);
         var subtrahend = Number(document.getElementById("subtrahend").value);
-		var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpcservertest";
+		var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpc?app=jsonrpcservertest";
 		fetch(url, {
 			method: 'post',
 			headers: {

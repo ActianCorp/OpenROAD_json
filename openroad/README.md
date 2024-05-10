@@ -1,6 +1,6 @@
-# OpenROAD Examples and Utilities
+# OpenROAD JSON-RPC Client/Server Examples and Utilities
 
-## http-json routing examples
+## JsonRpcTest, HelloWorld and Subtract client examples with http-json routing
 
 This OpenROAD application contains examples of new http-json routing. 
 
@@ -29,6 +29,17 @@ To run against ORJSON_URL or local default server, issue:
 	w4glrun httpjsonrpc.img -chelloworld -Tyes -Lhelloworld.log
 
 	w4glrun httpjsonrpc.img -csubtract -Tyes -Lsubtract.log
+    
+## tablesinfo server application
+
+This OpenROAD server application is an example with database I/O. It gets user tables information for all owners or given owner.
+
+Examples of JSON-RPC requests will be like -
+
+    {"jsonrpc": "2.0", "method": "gettables", "id": 1} 
+
+    {"jsonrpc": "2.0", "method": "gettables", "params": {"owner":"ingres"}, "id": 2}
+
 
 ## JsonConfig4App
 

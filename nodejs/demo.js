@@ -10,9 +10,9 @@ var bodyString = JSON.stringify({
 
 var jsonrpc_url = process.env.ORJSON_URL;
 if (jsonrpc_url == null) {
-    jsonrpc_url = 'http://localhost:8080/openroad/jsonrpcservertest' ;
+    jsonrpc_url = 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest' ;
 } else {
-    jsonrpc_url = jsonrpc_url + "/jsonrpcservertest";
+    jsonrpc_url = jsonrpc_url + "/jsonrpc?app=jsonrpcservertest";
 }
 
 var url_obj = url.parse(jsonrpc_url);
