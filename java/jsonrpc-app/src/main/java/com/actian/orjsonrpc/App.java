@@ -17,9 +17,9 @@ public class App {
 		try {
 			String url = System.getenv("ORJSON_URL");
 			if (url == null || url.isEmpty()) {
-				url = "http://localhost:8080/openroad/jsonrpcservertest";
+				url = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 			}else {
-				url = url + "/jsonrpcservertest";
+				url = url + "/jsonrpc?app=jsonrpcservertest";
 			}
 			serverURL = new URL(url);
 			

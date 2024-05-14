@@ -6,9 +6,9 @@ function processSend(attempts) {
     var ORJSON_URL = WSHShell.ExpandEnvironmentStrings("%ORJSON_URL%");
     WSHShell = null;
     if (ORJSON_URL == "%ORJSON_URL%") {
-        var svcurl = "http://localhost:8080/openroad/jsonrpcservertest";
+        var svcurl = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
     } else {
-        var svcurl = ORJSON_URL + "/jsonrpcservertest";
+        var svcurl = ORJSON_URL + "/jsonrpc?app=jsonrpcservertest";
     }
 	
 	var xmlhttp = new ActiveXObject("MSXML2.ServerXMLHTTP");

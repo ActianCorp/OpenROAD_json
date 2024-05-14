@@ -11,7 +11,7 @@
         $("button").click(function(){
             var minuend = Number($("#minuend").val());
             var subtrahend = Number($("#subtrahend").val());
-			var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpcservertest";
+			var url = window.location.protocol + "//" + window.location.host + "/openroad/jsonrpc?app=jsonrpcservertest";
 			$.jsonRPC.setup({
 			  endPoint: url
 			});

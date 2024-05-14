@@ -7,9 +7,9 @@ use LWP::UserAgent;
 
 my $ua = LWP::UserAgent->new();
 my $json = '{"jsonrpc": "2.0", "id": 1, "method": "subtract" , "params": {"subtrahend": 23.4, "minuend": 42.8}}';
-my $server_endpoint = "http://localhost:8080/openroad/jsonrpcservertest";
+my $server_endpoint = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 if (defined $ENV{'ORJSON_URL'}) {
-    $server_endpoint = $ENV{'ORJSON_URL'} . "/jsonrpcservertest";
+    $server_endpoint = $ENV{'ORJSON_URL'} . "/jsonrpc?app=jsonrpcservertest";
 }
  
 my $req = HTTP::Request->new(POST => $server_endpoint);

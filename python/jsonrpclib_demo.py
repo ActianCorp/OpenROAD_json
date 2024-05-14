@@ -2,9 +2,9 @@ import os
 import sys
 import platform
 
-import jsonrpclib  # https://pypi.python.org/pypi/jsonrpclib - NOTE Python 2 only
+import jsonrpclib  # https://pypi.python.org/pypi/jsonrpclib
 
-DEFAULT_SERVER_URL = 'http://localhost:8080/openroad/jsonrpcservertest'
+DEFAULT_SERVER_URL = 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest'
 
 print(sys.version)
 print(platform.platform())
@@ -14,7 +14,7 @@ url = os.environ.get('ORJSON_URL')
 if url is None:
    url = DEFAULT_SERVER_URL
 else:
-   url = url + "/jsonrpcservertest"
+   url = url + "/jsonrpc?app=jsonrpcservertest"
 
 print(url)
 server = jsonrpclib.Server(url)

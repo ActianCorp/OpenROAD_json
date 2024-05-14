@@ -28,9 +28,9 @@ enddeclare
 {
 	url = CurSession.getenv(name = 'ORJSON_URL');
 	IF url = '' THEN	
-		url = 'http://localhost:8080/openroad/comtest';
+		url = 'http://localhost:8080/openroad/jsonrpc?app=comtest';
 	ELSE
-		url = url + '/comtest'
+		url = url + '/jsonrpc?app=comtest'
 	ENDIF;
 	hellostring = 'HELLO';
 	counter = 1;
@@ -3713,9 +3713,9 @@ enddeclare
 {
 	url = CurSession.getenv(name = 'ORJSON_URL');
 	IF url = '' THEN
-		url = 'http://localhost:8080/openroad/jsonrpcservertest';
+		url = 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest';
 	ELSE
-		url = url + '/jsonrpcservertest'
+		url = url + '/jsonrpc?app=jsonrpcservertest'
 	ENDIF;
 
 	field(request).UpdateBias = FB_DIMMED ;
@@ -7314,9 +7314,9 @@ enddeclare
 {
 	url = CurSession.getenv(name = 'ORJSON_URL');
 	IF url = '' THEN	
-		url = 'http://localhost:8080/openroad/jsonrpcservertest';
+		url = 'http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest';
 	ELSE
-		url = url + '/jsonrpcservertest'
+		url = url + '/jsonrpc?app=jsonrpcservertest'
 	ENDIF;
 	minuend = 42.8;
 	subtrahend = 23.4;

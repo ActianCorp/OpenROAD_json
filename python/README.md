@@ -20,17 +20,17 @@ To see more options.
 This example makes a regular function call by using [jsonrpclib](https://pypi.python.org/pypi/jsonrpclib) without the need for the caller to serialize to/from json.
 Please follow installation instructions under [jsonrpclib](https://pypi.python.org/pypi/jsonrpclib) to install jsonrpclib.
 
-**NOTE: Python 2 only (until jsonrpclib is Py3 ready).**
-
 To run against `ORJSON_URL` or local default server, issue:
 
     python jsonrpclib_demo.py
 
-	
+
 ## jsonrpcclient library
 
-This example shows how you can send JSON-RPC requests with 'request' and 'notify' function of [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) library.
+This example shows how you can create JSON-RPC requests with 'request' function of [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) library.
 Please follow installation instructions under [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) to install jsonrpcclient library.
+
+As per [jsonrpcclient](https://pypi.org/project/jsonrpcclient/) version 4, This library only creates JSON-RPC request. To send the JSON-RPC request created by [jsonrpcclient](https://pypi.org/project/jsonrpcclient/), you need to install other HTTP library such as [requests](https://pypi.org/project/requests/).
 
 To run against `ORJSON_URL` or local default server, issue:
 

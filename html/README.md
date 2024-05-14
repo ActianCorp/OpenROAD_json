@@ -1,6 +1,6 @@
 # HTML5/JavaScript Demos
 
-Copy `jsonrpc` folder under Tomcat Webapps. For example - `C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\` resulting in a `C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\jsonrpc` directory.
+Copy `jsonrpc` folder under Tomcat Webapps. For example - `C:\Program Files\Apache Software Foundation\Tomcat 9\webapps\` resulting in a `C:\Program Files\Apache Software Foundation\Tomcat 9\webapps\jsonrpc` directory.
 
 **Note: These examples need to be hosted on same web server where OpenROADJSONRPC servlet is configured, to avoid accidentally attempting to violate same-origin policy.**
 

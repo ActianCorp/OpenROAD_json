@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
 
 public class JsonHttpURLConnection {
 
@@ -18,13 +18,13 @@ public class JsonHttpURLConnection {
 	private void sendPost() throws Exception {
 		String url = System.getenv("ORJSON_URL");
 		if (url == null || url.isEmpty()) {
-			url = "http://localhost:8080/openroad/jsonrpcservertest";
+			url = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 		} else {
-			url = url + "/jsonrpcservertest";
+			url = url + "/jsonrpc?app=jsonrpcservertest";
 		}
 		
-		URL obj = new URL(url);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		URI uri = new URI(url);
+		HttpURLConnection con = (HttpURLConnection) uri.toURL().openConnection();
 
 		con.setRequestProperty("Content-Type", "application/json");
 		con.setRequestMethod("POST");

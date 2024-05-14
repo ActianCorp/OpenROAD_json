@@ -20,9 +20,9 @@ public class App {
 		CloseableHttpClient client = HttpClients.createDefault();
 		String url = System.getenv("ORJSON_URL");
 		if (url == null || url.isEmpty()) {
-			url = "http://localhost:8080/openroad/jsonrpcservertest";
+			url = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 		} else {
-			url = url + "/jsonrpcservertest";
+			url = url + "/jsonrpc?app=jsonrpcservertest";
 		}
 		HttpPost postRequest = new HttpPost(url);
 		

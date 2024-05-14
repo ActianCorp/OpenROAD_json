@@ -11,11 +11,11 @@ namespace JsonRPCdemo
         {
 			string jsonURL = Environment.GetEnvironmentVariable("ORJSON_URL");
 			if (jsonURL == null) {
-				jsonURL = "http://localhost:8080/openroad/jsonrpcservertest";
+				jsonURL = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 			}
 			else
 			{
-				jsonURL = jsonURL + "/jsonrpcservertest";
+				jsonURL = jsonURL + "/jsonrpc?app=jsonrpcservertest";
 			}
 			using (Client rpcClient = new Client(jsonURL))
 			{

@@ -12,11 +12,11 @@ namespace JsonRPCtest
             try{
 				string webAddr = Environment.GetEnvironmentVariable("ORJSON_URL");
 				if (webAddr == null) {
-					webAddr = "http://localhost:8080/openroad/jsonrpcservertest";
+					webAddr = "http://localhost:8080/openroad/jsonrpc?app=jsonrpcservertest";
 				}
 				else
 				{
-					webAddr = webAddr + "/jsonrpcservertest";
+					webAddr = webAddr + "/jsonrpc?app=jsonrpcservertest";
 				}
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
                 httpWebRequest.ContentType = "application/json";
